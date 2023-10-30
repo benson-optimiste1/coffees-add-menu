@@ -1,0 +1,9 @@
+.coffe-list{
+    background-color: burlywood;
+    border-radius: 12 px;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
