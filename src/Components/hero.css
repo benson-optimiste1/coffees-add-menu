@@ -1,0 +1,15 @@
+
+header{
+    width: 100%;
+    min-height: 200px;
+    background-color: salmon;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: calc(1.5em + 3vw);
+    color: whitesmoke;
+}
