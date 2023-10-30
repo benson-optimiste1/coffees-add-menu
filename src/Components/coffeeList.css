@@ -6,4 +6,14 @@
     margin-bottom: 1em;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.coffee-card{
+    width: 240 px;
+    padding: 1em;
+    background-color: rgb(42, 22, 4);
+    color: burlywood;
+    border-radius: calc(12px-1em);
+    margin: 1em;
 }

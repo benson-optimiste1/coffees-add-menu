@@ -1,5 +1,5 @@
 import './addCoffee.css'
-export default function AddCoffee() { 
+export default function AddCoffee({setCoffees}) { 
 
     const getCoffees = () => {
         fetch('https://first-deployed-api-c12.web.app/coffees')
@@ -16,26 +16,26 @@ const handleSubmit = (e) => {
     // e.target.name is the input "name"
     // e.target.name.value is the value of the input "name"
     const name = e.target.name.value
-    const reciepe = e.target.reciepe.value
+    const recipe = e.target.recipe.value
     const description = e.target.description.value
     // create a coffee object
-    const newCoffee = { name, reciepe, description}
+    const newCoffee = { name, recipe, description}
     // post the newCoffee object to the API 
     fetch('https://first-deployed-api-c12.web.app/coffees', {
         method: 'POST',
         headers:{
-            'Content-Types': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(newCoffee),
     })
     .then(res => res.json())
     .then(data => {
         // check if the message is "Success"
-        if(data.message === "Succes!"){
+        if(data.message === "Success!"){
             // our coffee was added  successfully
             // let's clear the form
             e.target.name.value = ''
-            e.target.reciepe.value = ''
+            e.target.recipe.value = ''
             e.target.description.value = ''
             // and then get updated list of coffees
             getCoffees()
@@ -48,22 +48,22 @@ const handleSubmit = (e) => {
     return (
         <section className="coffee-form">
             <h2>Add A Coffee</h2>
-            <form onSubmit={handleSubmit}/>
+            <form onSubmit={handleSubmit}>
             
                 <label htmlFor="name">
                     Name:
                     <input type="text" name="name" />
                 </label>
-                <label htmlFor="reciepe">
-                    Reciepe:
-                    <input type="text" name="reciepe" />
+                <label htmlFor="recipe">
+                    Recipe:
+                    <input type="text" name="recipe" />
                 </label>
                 <label htmlFor="description">
                     Description:
                     <input type="text" name="description" />
                 </label>
                 <input type="submit" value="add" className='add-btn' />
-            <form/>
+            </form>
         </section>
     )
 }
