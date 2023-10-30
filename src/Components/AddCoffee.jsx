@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './addCoffee.css'
 export default function AddCoffee({setCoffees}) { 
 
@@ -8,6 +9,10 @@ export default function AddCoffee({setCoffees}) {
         .catch(alert)
     }
 
+
+    useEffect(() => {
+        getCoffees()
+    }, []) // on time, after the component mounts, get the coffees
 
 const handleSubmit = (e) => {
     e.preventDefault()
